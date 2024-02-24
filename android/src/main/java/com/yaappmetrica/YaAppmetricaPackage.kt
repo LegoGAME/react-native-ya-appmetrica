@@ -8,7 +8,10 @@ import com.facebook.react.uimanager.ViewManager
 
 class YaAppmetricaPackage : ReactPackage {
   override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-    return listOf(YaAppmetricaModule(reactContext))
+    return listOf(
+      YaAppmetricaModule(reactContext),
+      TestError(reactContext)
+      )
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
