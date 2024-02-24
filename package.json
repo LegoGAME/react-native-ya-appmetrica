@@ -1,7 +1,7 @@
 {
   "name": "react-native-ya-appmetrica",
-  "version": "0.0.1",
-  "description": "AppMetrica",
+  "version": "0.1.0",
+  "description": "AppMetrica library wrapper for React Native for iOS and Android.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
