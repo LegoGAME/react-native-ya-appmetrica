@@ -1,6 +1,7 @@
 package com.yaappmetrica
 
 import android.location.Location
+import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import io.appmetrica.analytics.AppMetricaConfig
 import io.appmetrica.analytics.PreloadInfo
@@ -14,45 +15,76 @@ abstract class Utils {
     fun toAppMetricaConfig(configMap: ReadableMap): AppMetricaConfig {
       val builder = AppMetricaConfig.newConfigBuilder(configMap.getString("apiKey")?:"")
 
-      if (configMap.hasKey("appVersion")) {
-        builder.withAppVersion(configMap.getString("appVersion"))
-      }
-      if (configMap.hasKey("crashReporting")) {
-        builder.withCrashReporting(configMap.getBoolean("crashReporting"))
-      }
-      if (configMap.hasKey("logs")) {
-        builder.withLogs()
-      }
-      if (configMap.hasKey("nativeCrashReporting")) {
-        builder.withNativeCrashReporting(configMap.getBoolean("nativeCrashReporting"))
-      }
-      if (configMap.hasKey("sessionTimeout")) {
-        builder.withSessionTimeout(configMap.getInt("sessionTimeout"))
+      if (configMap.hasKey("appBuildNumber")) {
+        builder.withAppBuildNumber(configMap.getInt("appBuildNumber"))
       }
       if (configMap.hasKey("appOpenTrackingEnabled")) {
         builder.withAppOpenTrackingEnabled(configMap.getBoolean("appOpenTrackingEnabled"))
       }
-      if (configMap.hasKey("firstActivationAsUpdate")) {
-        builder.handleFirstActivationAsUpdate(configMap.getBoolean("firstActivationAsUpdate"))
+      if (configMap.hasKey("appVersion")) {
+        builder.withAppVersion(configMap.getString("appVersion"))
       }
-      if (configMap.hasKey("maxReportsInDatabaseCount")) {
-        builder.withMaxReportsInDatabaseCount(configMap.getInt("maxReportsInDatabaseCount"))
+      if (configMap.hasKey("customHosts")) {
+        val hosts = configMap.getArray("customHosts") as ReadableArray
+        val stringList: List<String?> = (0 until hosts.size())
+          .map { index -> hosts.getString(index) }
+
+        builder.withCustomHosts(stringList)
       }
-      if (configMap.hasKey("maxReportsCount")) {
-        builder.withMaxReportsCount(configMap.getInt("maxReportsCount"))
-      }
-      if (configMap.hasKey("userProfileID")) {
-        builder.withUserProfileID(configMap.getString("userProfileID"))
-      }
-      if (configMap.hasKey("statisticsSending")) {
-        builder.withDataSendingEnabled(configMap.getBoolean("statisticsSending"))
+      if (configMap.hasKey("dataSendingEnabled")) {
+        builder.withDataSendingEnabled(configMap.getBoolean("dataSendingEnabled"))
       }
       if (configMap.hasKey("locationTracking")) {
         builder.withLocationTracking(configMap.getBoolean(("locationTracking")))
       }
-
-//      configMap.getMap("preloadInfo")?.let { builder.withPreloadInfo(toPreloadInfo(it)) }
-//      configMap.getMap("location")?.let { builder.withLocation(toLocation(it)) }
+      if (configMap.hasKey("maxReportsCount")) {
+        builder.withMaxReportsCount(configMap.getInt("maxReportsCount"))
+      }
+      if (configMap.hasKey("maxReportsInDatabaseCount")) {
+        builder.withMaxReportsInDatabaseCount(configMap.getInt("maxReportsInDatabaseCount"))
+      }
+      if (configMap.hasKey("preloadInfo")) {
+        builder.withPreloadInfo(toPreloadInfo(configMap.getMap("preloadInfo")))
+      }
+      if (configMap.hasKey("revenueAutoTrackingEnabled")) {
+        builder.withRevenueAutoTrackingEnabled(configMap.getBoolean("revenueAutoTrackingEnabled"))
+      }
+      if (configMap.hasKey("sessionTimeout")) {
+        builder.withSessionTimeout(configMap.getInt("sessionTimeout"))
+      }
+      if (configMap.hasKey("userProfileID")) {
+        builder.withUserProfileID(configMap.getString("userProfileID"))
+      }
+      if (configMap.hasKey("location")) {
+        builder.withLocation(toLocation(configMap.getMap("location")))
+      }
+      if (configMap.hasKey("logs")) {
+        builder.withLogs()
+      }
+      if (configMap.hasKey("dispatchPeriodSeconds")) {
+        builder.withDispatchPeriodSeconds(configMap.getInt("dispatchPeriodSeconds"))
+      }
+      if (configMap.hasKey("sessionsAutoTrackingEnabled")) {
+        builder.withSessionsAutoTrackingEnabled(configMap.getBoolean("sessionsAutoTrackingEnabled"))
+      }
+      if (configMap.hasKey("firstActivationAsUpdate")) {
+        builder.handleFirstActivationAsUpdate(configMap.getBoolean("firstActivationAsUpdate"))
+      }
+      if (configMap.hasKey("crashReporting")) {
+        builder.withCrashReporting(configMap.getBoolean("crashReporting"))
+      }
+      if (configMap.hasKey("anrMonitoring")) {
+        builder.withAnrMonitoring(configMap.getBoolean("anrMonitoring"))
+      }
+      if (configMap.hasKey("anrMonitoringTimeout")) {
+        builder.withAnrMonitoringTimeout(configMap.getInt("anrMonitoringTimeout"))
+      }
+      if (configMap.hasKey("deviceType")) {
+        builder.withDeviceType(configMap.getString("deviceType"))
+      }
+      if (configMap.hasKey("nativeCrashReporting")) {
+        builder.withNativeCrashReporting(configMap.getBoolean("nativeCrashReporting"))
+      }
 
       return builder.build()
     }
@@ -64,11 +96,6 @@ abstract class Utils {
 
       locationMap.getDouble("latitude").let { location.latitude = it }
       locationMap.getDouble("longitude").let { location.longitude = it }
-      locationMap.getDouble("altitude").let { location.altitude = it }
-      locationMap.getDouble("accuracy").let { location.accuracy = it.toFloat() }
-      locationMap.getDouble("course").let { location.bearing = it.toFloat() }
-      locationMap.getDouble("speed").let { location.speed = it.toFloat() }
-      locationMap.getDouble("timestamp").let { location.time = it.toLong() }
 
       return location
     }

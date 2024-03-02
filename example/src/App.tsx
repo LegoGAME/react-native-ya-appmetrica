@@ -7,13 +7,24 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import AppMetrica from 'react-native-ya-appmetrica';
+import * as AppMetrica from 'react-native-ya-appmetrica';
 
 AppMetrica.activate({
-  apiKey: '5c8be78e-55be-4feb-ab22-f35d028ff987',
+  apiKey: 'API_KEY',
   logs: true,
+  appBuildNumber: 10,
   appVersion: '2.0.0',
   sessionTimeout: 120,
+  location: {
+    latitude: 43.1056,
+    longitude: 131.874,
+  },
+});
+
+AppMetrica.configureCrashes({
+  autoCrashTracking: true,
+  applicationNotRespondingDetection: true,
+  applicationNotRespondingPingInterval: 0.1,
 });
 
 const MyButton = ({ text, onPress }: { text: string; onPress: () => void }) => {
@@ -48,7 +59,7 @@ export default function App() {
         />
         <MyButton text="Critical error" onPress={AppMetrica.criticalError} />
         {/* @ts-ignore undefined для тестирования отправки ошибки*/}
-        <MyButton text="onPress is undefined" onPress={undefined} />{' '}
+        <MyButton text="onPress is undefined" onPress={undefined} />
         <MyButton
           text="ReportCustomError"
           onPress={() => AppMetrica.reportError(new Error('this is joke'))}
@@ -70,7 +81,7 @@ export default function App() {
           text="reportUserProfile"
           onPress={() => {
             AppMetrica.reportUserProfile({
-              userProfileID: 'qwerty',
+              userProfileID: 'qwerty123',
               name: 'Иван Иванов',
               gender: 'male',
               birthDate: new Date(1992, 6, 13),

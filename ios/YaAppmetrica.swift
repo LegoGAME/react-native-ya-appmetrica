@@ -1,11 +1,15 @@
-import YandexMobileMetrica
+import AppMetricaCore
 
 
 @objc(YaAppmetrica)
 class YaAppmetrica: NSObject {
   @objc func activate(_ config: NSDictionary, onError: @escaping RCTResponseSenderBlock) {
+    if AppMetrica.isActivated {
+      return
+    }
+    
     if let metricaConfig = Utils.toAppMetricaConfig(with: config) {
-      YMMYandexMetrica.activate(with: metricaConfig)
+      AppMetrica.activate(with: metricaConfig)
     }
     else {
       onError(["AppMetrica is not initialized. Check your logs in Xcode. This can happen if you did not pass the api key or api key is incorrect."])
@@ -14,63 +18,49 @@ class YaAppmetrica: NSObject {
   
   @objc func reportEvent(_ eventName: NSString, attributes: NSDictionary?) {
     if (attributes == nil) {
-      YMMYandexMetrica.reportEvent(eventName as String)
+      AppMetrica.reportEvent(name: eventName as String)
     } else {
-      YMMYandexMetrica.reportEvent(eventName as String, parameters: attributes as? [AnyHashable : Any])
+      AppMetrica.reportEvent(name: eventName as String, parameters: attributes as? [AnyHashable : Any])
     }
   }
   
-  @objc func reportError(_ name: String, stack: String) {
-    let underlyingError = YMMError.init(identifier: "Underlying YMMError")
-    
-    let error = YMMError(
-      identifier: name,
-      message: stack,
-      parameters: [:],
-      backtrace: Thread.callStackReturnAddresses,
-      underlyingError: underlyingError
-    )
-    
-    YMMYandexMetrica.report(error: error, onFailure: nil)
-  }
-  
   @objc func sendEventsBuffer() {
-    YMMYandexMetrica.sendEventsBuffer()
+    AppMetrica.sendEventsBuffer()
   }
   
   @objc func pauseSession() {
-    YMMYandexMetrica.pauseSession()
+    AppMetrica.pauseSession()
   }
   
   @objc func resumeSession() {
-    YMMYandexMetrica.resumeSession()
+    AppMetrica.resumeSession()
   }
   
   @objc func reportAppOpen(_ deeplink: NSString) {
-    YMMYandexMetrica.handleOpen(NSURL(string: deeplink as String)! as URL)
+    AppMetrica.trackOpeningURL(NSURL(string: deeplink as String)! as URL)
   }
   
   @objc func setUserProfileID(_ userID: NSString) {
-    YMMYandexMetrica.setUserProfileID(userID as String)
+    AppMetrica.userProfileID = userID as String
   }
   
   @objc func reportUserProfile(_ profileData: NSDictionary, onError: @escaping RCTResponseSenderBlock) {
     if let profileId = profileData["userProfileID"] as? String {
-      YMMYandexMetrica.setUserProfileID(profileId)
+      AppMetrica.userProfileID = profileId
     }
     
     let profile = Utils.toProfile(with: profileData)
-    YMMYandexMetrica.report(profile, onFailure: { (error) in
+    AppMetrica.reportUserProfile(profile, onFailure: { (error) in
       onError([error.localizedDescription])
     })
   }
   
   @objc func setStatisticsSending(_ enabled: Bool) {
-    YMMYandexMetrica.setStatisticsSending(enabled)
+    AppMetrica.setDataSendingEnabled(enabled)
   }
   
   @objc func setLocationTracking(_ enabled: Bool){
-    YMMYandexMetrica.setLocationTracking(enabled)
+    AppMetrica.isLocationTrackingEnabled = enabled
   }
 }
 

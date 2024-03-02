@@ -1,6 +1,58 @@
 PODS:
+  - AppMetrica_FMDB (5.0.0)
+  - AppMetrica_Protobuf (5.0.0)
+  - AppMetricaAdSupport (5.0.0):
+    - AppMetricaCore (~> 5.0)
+    - AppMetricaCoreExtension (~> 5.0)
+  - AppMetricaCore (5.0.0):
+    - AppMetrica_FMDB (~> 5.0)
+    - AppMetrica_Protobuf (~> 5.0)
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaEncodingUtils (~> 5.0)
+    - AppMetricaHostState (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+    - AppMetricaNetwork (~> 5.0)
+    - AppMetricaPlatform (~> 5.0)
+    - AppMetricaProtobufUtils (~> 5.0)
+    - AppMetricaStorageUtils (~> 5.0)
+  - AppMetricaCoreExtension (5.0.0):
+    - AppMetricaCore (~> 5.0)
+    - AppMetricaStorageUtils (~> 5.0)
+  - AppMetricaCoreUtils (5.0.0):
+    - AppMetricaLog (~> 5.0)
+  - AppMetricaCrashes (5.0.0):
+    - AppMetricaCore (~> 5.0)
+    - AppMetricaCoreExtension (~> 5.0)
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaEncodingUtils (~> 5.0)
+    - AppMetricaHostState (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+    - AppMetricaPlatform (~> 5.0)
+    - AppMetricaProtobufUtils (~> 5.0)
+    - AppMetricaStorageUtils (~> 5.0)
+    - KSCrash/Recording (= 1.16.1)
+    - KSCrash/Recording/Tools
+  - AppMetricaEncodingUtils (5.0.0):
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+    - AppMetricaPlatform (~> 5.0)
+  - AppMetricaHostState (5.0.0):
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+  - AppMetricaLog (5.0.0)
+  - AppMetricaNetwork (5.0.0):
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+    - AppMetricaPlatform (~> 5.0)
+  - AppMetricaPlatform (5.0.0):
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaLog (~> 5.0)
+  - AppMetricaProtobufUtils (5.0.0):
+    - AppMetrica_Protobuf (~> 5.0)
+  - AppMetricaStorageUtils (5.0.0):
+    - AppMetricaCoreUtils (~> 5.0)
+    - AppMetricaLog (~> 5.0)
   - boost (1.83.0)
-  - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.73.4)
   - FBReactNativeSpec (0.73.4):
@@ -10,69 +62,15 @@ PODS:
     - React-Core (= 0.73.4)
     - React-jsi (= 0.73.4)
     - ReactCommon/turbomodule/core (= 0.73.4)
-  - Flipper (0.201.0):
-    - Flipper-Folly (~> 2.6)
-  - Flipper-Boost-iOSX (1.76.0.1.11)
-  - Flipper-DoubleConversion (3.2.0.1)
-  - Flipper-Fmt (7.1.7)
-  - Flipper-Folly (2.6.10):
-    - Flipper-Boost-iOSX
-    - Flipper-DoubleConversion
-    - Flipper-Fmt (= 7.1.7)
-    - Flipper-Glog
-    - libevent (~> 2.1.12)
-    - OpenSSL-Universal (= 1.1.1100)
-  - Flipper-Glog (0.5.0.5)
-  - Flipper-PeerTalk (0.0.4)
-  - FlipperKit (0.201.0):
-    - FlipperKit/Core (= 0.201.0)
-  - FlipperKit/Core (0.201.0):
-    - Flipper (~> 0.201.0)
-    - FlipperKit/CppBridge
-    - FlipperKit/FBCxxFollyDynamicConvert
-    - FlipperKit/FBDefines
-    - FlipperKit/FKPortForwarding
-    - SocketRocket (~> 0.6.0)
-  - FlipperKit/CppBridge (0.201.0):
-    - Flipper (~> 0.201.0)
-  - FlipperKit/FBCxxFollyDynamicConvert (0.201.0):
-    - Flipper-Folly (~> 2.6)
-  - FlipperKit/FBDefines (0.201.0)
-  - FlipperKit/FKPortForwarding (0.201.0):
-    - CocoaAsyncSocket (~> 7.6)
-    - Flipper-PeerTalk (~> 0.0.4)
-  - FlipperKit/FlipperKitHighlightOverlay (0.201.0)
-  - FlipperKit/FlipperKitLayoutHelpers (0.201.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutTextSearchable
-  - FlipperKit/FlipperKitLayoutIOSDescriptors (0.201.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutHelpers
-  - FlipperKit/FlipperKitLayoutPlugin (0.201.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitHighlightOverlay
-    - FlipperKit/FlipperKitLayoutHelpers
-    - FlipperKit/FlipperKitLayoutIOSDescriptors
-    - FlipperKit/FlipperKitLayoutTextSearchable
-  - FlipperKit/FlipperKitLayoutTextSearchable (0.201.0)
-  - FlipperKit/FlipperKitNetworkPlugin (0.201.0):
-    - FlipperKit/Core
-  - FlipperKit/FlipperKitReactPlugin (0.201.0):
-    - FlipperKit/Core
-  - FlipperKit/FlipperKitUserDefaultsPlugin (0.201.0):
-    - FlipperKit/Core
-  - FlipperKit/SKIOSNetworkPlugin (0.201.0):
-    - FlipperKit/Core
-    - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
   - hermes-engine (0.73.4):
     - hermes-engine/Pre-built (= 0.73.4)
   - hermes-engine/Pre-built (0.73.4)
+  - KSCrash/Recording (1.16.1):
+    - KSCrash/Recording/Tools (= 1.16.1)
+  - KSCrash/Recording/Tools (1.16.1)
   - libevent (2.1.12)
-  - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2022.05.16.00):
     - boost
     - DoubleConversion
@@ -944,11 +942,13 @@ PODS:
   - React-Mapbuffer (0.73.4):
     - glog
     - React-debug
-  - react-native-ya-appmetrica (0.0.1):
+  - react-native-ya-appmetrica (0.1.0):
+    - AppMetricaAdSupport (~> 5.0.0)
+    - AppMetricaCore (~> 5.0.0)
+    - AppMetricaCrashes (~> 5.0.0)
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-    - YandexMobileMetrica (= 4.5.2)
   - React-nativeconfig (0.73.4)
   - React-NativeModulesApple (0.73.4):
     - glog
@@ -1117,14 +1117,6 @@ PODS:
     - React-logger (= 0.73.4)
     - React-perflogger (= 0.73.4)
   - SocketRocket (0.6.1)
-  - YandexMobileMetrica (4.5.2):
-    - YandexMobileMetrica/Static (= 4.5.2)
-  - YandexMobileMetrica/Static (4.5.2):
-    - YandexMobileMetrica/Static/Core (= 4.5.2)
-    - YandexMobileMetrica/Static/Crashes (= 4.5.2)
-  - YandexMobileMetrica/Static/Core (4.5.2)
-  - YandexMobileMetrica/Static/Crashes (4.5.2):
-    - YandexMobileMetrica/Static/Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -1132,30 +1124,9 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
-  - Flipper (= 0.201.0)
-  - Flipper-Boost-iOSX (= 1.76.0.1.11)
-  - Flipper-DoubleConversion (= 3.2.0.1)
-  - Flipper-Fmt (= 7.1.7)
-  - Flipper-Folly (= 2.6.10)
-  - Flipper-Glog (= 0.5.0.5)
-  - Flipper-PeerTalk (= 0.0.4)
-  - FlipperKit (= 0.201.0)
-  - FlipperKit/Core (= 0.201.0)
-  - FlipperKit/CppBridge (= 0.201.0)
-  - FlipperKit/FBCxxFollyDynamicConvert (= 0.201.0)
-  - FlipperKit/FBDefines (= 0.201.0)
-  - FlipperKit/FKPortForwarding (= 0.201.0)
-  - FlipperKit/FlipperKitHighlightOverlay (= 0.201.0)
-  - FlipperKit/FlipperKitLayoutPlugin (= 0.201.0)
-  - FlipperKit/FlipperKitLayoutTextSearchable (= 0.201.0)
-  - FlipperKit/FlipperKitNetworkPlugin (= 0.201.0)
-  - FlipperKit/FlipperKitReactPlugin (= 0.201.0)
-  - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.201.0)
-  - FlipperKit/SKIOSNetworkPlugin (= 0.201.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
   - libevent (~> 2.1.12)
-  - OpenSSL-Universal (= 1.1.1100)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
@@ -1164,7 +1135,6 @@ DEPENDENCIES:
   - React-callinvoker (from `../node_modules/react-native/ReactCommon/callinvoker`)
   - React-Codegen (from `build/generated/ios`)
   - React-Core (from `../node_modules/react-native/`)
-  - React-Core/DevSupport (from `../node_modules/react-native/`)
   - React-Core/RCTWebSocket (from `../node_modules/react-native/`)
   - React-CoreModules (from `../node_modules/react-native/React/CoreModules`)
   - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
@@ -1205,20 +1175,24 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - CocoaAsyncSocket
-    - Flipper
-    - Flipper-Boost-iOSX
-    - Flipper-DoubleConversion
-    - Flipper-Fmt
-    - Flipper-Folly
-    - Flipper-Glog
-    - Flipper-PeerTalk
-    - FlipperKit
+    - AppMetrica_FMDB
+    - AppMetrica_Protobuf
+    - AppMetricaAdSupport
+    - AppMetricaCore
+    - AppMetricaCoreExtension
+    - AppMetricaCoreUtils
+    - AppMetricaCrashes
+    - AppMetricaEncodingUtils
+    - AppMetricaHostState
+    - AppMetricaLog
+    - AppMetricaNetwork
+    - AppMetricaPlatform
+    - AppMetricaProtobufUtils
+    - AppMetricaStorageUtils
     - fmt
+    - KSCrash
     - libevent
-    - OpenSSL-Universal
     - SocketRocket
-    - YandexMobileMetrica
 
 EXTERNAL SOURCES:
   boost:
@@ -1322,24 +1296,29 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppMetrica_FMDB: b0027ef60486ab8cbb92517e6f158f47e948966d
+  AppMetrica_Protobuf: c44fba4de72e754bad2b2af4b516c46235637cdf
+  AppMetricaAdSupport: b4564e68c7b04471452c425ddf42889dd6e61ffb
+  AppMetricaCore: 41504279344ef216aaf829521545f4687ef83f42
+  AppMetricaCoreExtension: d621339fadf2749e5cc84a8d0d7d010d04786e25
+  AppMetricaCoreUtils: 91fbb3c343dd08f28d5fff396d7c6b59a86e222b
+  AppMetricaCrashes: b50185f353d97d09b4cf0766d3a6e2e871e0e888
+  AppMetricaEncodingUtils: d68a875f6a1a2d8b50fe4aecbf088622eadc9e78
+  AppMetricaHostState: bbdd1c90d84d4867e2322543b5cd792dcfd455ec
+  AppMetricaLog: a06907bf301f0e89483abdaeb93555d2099e381c
+  AppMetricaNetwork: 8aca26fc625259b91d0324fd35ee1172c63f180f
+  AppMetricaPlatform: 28dce7678d1648713200be74bb94eec2a12efb1c
+  AppMetricaProtobufUtils: 74dad8cc4d333d882c672d2c4ac97e81f7601475
+  AppMetricaStorageUtils: 59000875b016579b7bd7a41dfda195b134abda1b
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
-  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 84f6edbe225f38aebd9deaf1540a4160b1f087d7
   FBReactNativeSpec: d0086a479be91c44ce4687a962956a352d2dc697
-  Flipper: c7a0093234c4bdd456e363f2f19b2e4b27652d44
-  Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
-  Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
-  Flipper-Fmt: 60cbdd92fc254826e61d669a5d87ef7015396a9b
-  Flipper-Folly: 584845625005ff068a6ebf41f857f468decd26b3
-  Flipper-Glog: 70c50ce58ddaf67dc35180db05f191692570f446
-  Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
-  FlipperKit: 37525a5d056ef9b93d1578e04bc3ea1de940094f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: b2669ce35fc4ac14f523b307aff8896799829fe2
+  KSCrash: fa10d2b42aa3e38f5697ef1124504c3fab6c6e6b
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: ab7f915c15569f04a49669e573e6e319a53f9faa
   RCTTypeSafety: 63b97ced7b766865057e7154db0e81ce4ee6cf1e
@@ -1361,7 +1340,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 9ac353eccf6ab54d1e0a33862ba91221d1e88460
   React-logger: 0a57b68dd2aec7ff738195f081f0520724b35dab
   React-Mapbuffer: 63913773ed7f96b814a2521e13e6d010282096ad
-  react-native-ya-appmetrica: 1340898664c2db1829b89ffee4daa23a7a0be2f5
+  react-native-ya-appmetrica: 4d590785689caf9c7121b2c3b761d23afc012cda
   React-nativeconfig: d7af5bae6da70fa15ce44f045621cf99ed24087c
   React-NativeModulesApple: 0123905d5699853ac68519607555a9a4f5c7b3ac
   React-perflogger: 8a1e1af5733004bdd91258dcefbde21e0d1faccd
@@ -1383,9 +1362,8 @@ SPEC CHECKSUMS:
   React-utils: 6e5ad394416482ae21831050928ae27348f83487
   ReactCommon: 840a955d37b7f3358554d819446bffcf624b2522
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  YandexMobileMetrica: f5368ee93f286c793d73b58da00929babfc897c1
   Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
-PODFILE CHECKSUM: a1f472b4d98e2adeba410d6b70b73cc831749649
+PODFILE CHECKSUM: 71d63a51ff7303a5a1b304e4f1aeb906976948d9
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

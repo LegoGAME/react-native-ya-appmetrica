@@ -39,5 +39,7 @@ Pod::Spec.new do |s|
     end
   end
 
-  s.dependency "YandexMobileMetrica", "4.5.2"
+  s.dependency 'AppMetricaCore', '~> 5.0.0' # Основной модуль для работы с AppMetrica SDK, обязателен для подключения
+  s.dependency 'AppMetricaAdSupport', '~> 5.0.0' # Необходим для сбора идентификаторов, без него не будет собираться IDFA
+  s.dependency 'AppMetricaCrashes', '~> 5.0.0' # Модуль для отлова крэшей и отправки ошибок
 end
