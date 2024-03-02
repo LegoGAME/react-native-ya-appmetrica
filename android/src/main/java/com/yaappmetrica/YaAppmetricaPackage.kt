@@ -10,7 +10,7 @@ class YaAppmetricaPackage : ReactPackage {
   override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
     return listOf(
       YaAppmetricaModule(reactContext),
-      TestError(reactContext)
+      AppMetricaCrashes(reactContext)
       )
   }
 

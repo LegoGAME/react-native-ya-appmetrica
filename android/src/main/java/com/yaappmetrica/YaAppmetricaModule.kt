@@ -35,11 +35,6 @@ class YaAppmetricaModule(val reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun reportError(name: String, stack: String) {
-    AppMetrica.reportError(name, stack)
-  }
-
-  @ReactMethod
   fun sendEventsBuffer() {
     AppMetrica.sendEventsBuffer()
   }
