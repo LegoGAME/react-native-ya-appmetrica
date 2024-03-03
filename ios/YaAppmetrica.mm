@@ -13,6 +13,7 @@ RCT_EXTERN_METHOD(reportUserProfile: (NSDictionary*)profileData onError: (RCTRes
 RCT_EXTERN_METHOD(setStatisticsSending: (BOOL)enabled)
 RCT_EXTERN_METHOD(setLocationTracking: (BOOL)enabled)
 RCT_EXTERN_METHOD(reportRevenue: (NSDictionary*)data onError: (RCTResponseSenderBlock)onError)
+RCT_EXTERN_METHOD(getSystemInfo: (RCTResponseSenderBlock)callback)
 
 + (BOOL)requiresMainQueueSetup
 {

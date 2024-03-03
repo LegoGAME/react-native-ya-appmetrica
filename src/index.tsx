@@ -8,4 +8,5 @@ export type {
   CrashesConfiguration,
   Location,
   PreloadInfo,
+  SystemInfo,
 } from './types';

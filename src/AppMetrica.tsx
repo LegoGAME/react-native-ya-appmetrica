@@ -1,7 +1,12 @@
 import { NativeModules, Platform } from 'react-native';
 import { LINKING_ERROR } from './constants';
 import type { NativeImplAppMetrica } from './types/_native';
-import type { AppMetricaConfig, RevenueInfo, UserProfile } from './types';
+import type {
+  AppMetricaConfig,
+  RevenueInfo,
+  SystemInfo,
+  UserProfile,
+} from './types';
 
 const AppMetrica: NativeImplAppMetrica = NativeModules.AppMetrica;
 
@@ -136,4 +141,10 @@ export const reportRevenue = (
       throw new Error(error);
     }
   });
+};
+
+export const getSystemInfo = (callback: (info: SystemInfo) => void) => {
+  if (AppMetrica.getSystemInfo) {
+    AppMetrica.getSystemInfo(callback);
+  }
 };

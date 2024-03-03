@@ -5,6 +5,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.WritableNativeMap
 import io.appmetrica.analytics.AppMetrica
 
 class YaAppmetricaModule(val reactContext: ReactApplicationContext) :
@@ -91,6 +92,19 @@ class YaAppmetricaModule(val reactContext: ReactApplicationContext) :
     } catch (error: Exception) {
       onError(error)
     }
+  }
 
+  @ReactMethod
+  fun getSystemInfo(callback: Callback) {
+    val libVersion = AppMetrica.getLibraryVersion()
+    val deviceId = AppMetrica.getDeviceId(this.reactContext)
+    val uuid = AppMetrica.getUuid(this.reactContext)
+
+    val map = WritableNativeMap()
+    map.putString("library_version", libVersion)
+    map.putString("appmetrica_device_id", deviceId)
+    map.putString("uuid", uuid)
+
+    callback(map)
   }
 }

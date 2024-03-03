@@ -81,3 +81,9 @@ export type RevenueInfo = {
   /** Чтобы группировать покупки по OrderID, укажите его в свойстве payload. */
   payload?: Record<string, string | number | boolean | null>;
 };
+
+export type SystemInfo = {
+  appmetrica_device_id: string;
+  library_version: string;
+  uuid: string;
+};

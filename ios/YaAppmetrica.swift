@@ -69,5 +69,14 @@ class YaAppmetrica: NSObject {
       onError([error.localizedDescription])
     }
   }
+  
+  @objc func getSystemInfo(_ callback: RCTResponseSenderBlock) {
+    let result = [
+      "library_version": AppMetrica.libraryVersion,
+      "appmetrica_device_id": AppMetrica.deviceID ?? "",
+      "uuid": AppMetrica.uuid,
+    ]
+    callback([result])
+  }
 }
 
