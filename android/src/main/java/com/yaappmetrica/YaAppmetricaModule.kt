@@ -69,7 +69,7 @@ class YaAppmetricaModule(val reactContext: ReactApplicationContext) :
       val profile = Utils.toProfile(profileData)
       AppMetrica.reportUserProfile(profile)
     } catch (error: Exception) {
-      onError(error.localizedMessage)
+      onError(error)
     }
   }
 
@@ -81,5 +81,16 @@ class YaAppmetricaModule(val reactContext: ReactApplicationContext) :
   @ReactMethod
   fun setLocationTracking(enabled: Boolean){
     AppMetrica.setLocationTracking(enabled)
+  }
+
+  @ReactMethod
+  fun reportRevenue(data: ReadableMap, onError: Callback) {
+    try {
+      val revenue = Utils.toRevenueInfo(data)
+      AppMetrica.reportRevenue(revenue)
+    } catch (error: Exception) {
+      onError(error)
+    }
+
   }
 }

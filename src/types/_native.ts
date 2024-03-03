@@ -1,4 +1,4 @@
-import type { AppMetricaConfig, UserProfile } from './appMetrica';
+import type { AppMetricaConfig, RevenueInfo, UserProfile } from './appMetrica';
 import type { CrashesConfiguration } from './crashes';
 
 /**
@@ -19,6 +19,7 @@ export interface NativeImplAppMetrica {
   ): void;
   setStatisticsSending(enabled: boolean): void;
   setLocationTracking(enabled: boolean): void;
+  reportRevenue(revenue: RevenueInfo, onError?: (error: string) => void): void;
 }
 
 export type NativeImplCrashes = {

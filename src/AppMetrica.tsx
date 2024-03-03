@@ -1,7 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 import { LINKING_ERROR } from './constants';
 import type { NativeImplAppMetrica } from './types/_native';
-import type { AppMetricaConfig, UserProfile } from './types';
+import type { AppMetricaConfig, RevenueInfo, UserProfile } from './types';
 
 const AppMetrica: NativeImplAppMetrica = NativeModules.AppMetrica;
 
@@ -45,6 +45,18 @@ export const activate = (config: AppMetricaConfig): void => {
       `react-native-ya-appmetrica does not support platform - ${Platform.OS}`
     );
   }
+};
+
+/**
+ * Отправка собственного события
+ * @param name Имя события
+ * @param attributes вложенные параметры в виде пар "ключ-значение"
+ */
+export const reportEvent = (
+  name: string,
+  attributes?: Record<string, unknown>
+) => {
+  AppMetrica.reportEvent(name, attributes);
 };
 
 /**
@@ -113,14 +125,15 @@ export const setLocationTracking = (enabled: boolean) => {
   AppMetrica.setLocationTracking(enabled);
 };
 
-/**
- * Отправка собственного события
- * @param name Имя события
- * @param attributes вложенные параметры в виде пар "ключ-значение"
- */
-export const reportEvent = (
-  name: string,
-  attributes?: Record<string, unknown>
+export const reportRevenue = (
+  revenue: RevenueInfo,
+  onError?: (error: string) => void
 ) => {
-  AppMetrica.reportEvent(name, attributes);
+  AppMetrica.reportRevenue(revenue, (error) => {
+    if (onError) {
+      onError(error);
+    } else {
+      throw new Error(error);
+    }
+  });
 };

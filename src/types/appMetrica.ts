@@ -70,3 +70,14 @@ export type AppMetricaConfig = {
   // errorEnvironment?: Record<string, string>[];
   nativeCrashReporting?: boolean;
 };
+
+export type RevenueInfo = {
+  price: number;
+  currency: string;
+  quantity?: number;
+  productId?: string;
+  /** ios only */
+  transactionId?: string;
+  /** Чтобы группировать покупки по OrderID, укажите его в свойстве payload. */
+  payload?: Record<string, string | number | boolean | null>;
+};

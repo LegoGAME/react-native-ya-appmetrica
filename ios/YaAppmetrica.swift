@@ -59,8 +59,15 @@ class YaAppmetrica: NSObject {
     AppMetrica.setDataSendingEnabled(enabled)
   }
   
-  @objc func setLocationTracking(_ enabled: Bool){
+  @objc func setLocationTracking(_ enabled: Bool) {
     AppMetrica.isLocationTrackingEnabled = enabled
+  }
+  
+  @objc func reportRevenue(_ data: NSDictionary, onError: @escaping RCTResponseSenderBlock) {
+    let revenue = Utils.toRevenueInfo(with: data)
+    AppMetrica.reportRevenue(revenue) { error in
+      onError([error.localizedDescription])
+    }
   }
 }
 

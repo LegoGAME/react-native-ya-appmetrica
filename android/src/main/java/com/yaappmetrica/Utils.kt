@@ -5,9 +5,11 @@ import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import io.appmetrica.analytics.AppMetricaConfig
 import io.appmetrica.analytics.PreloadInfo
+import io.appmetrica.analytics.Revenue
 import io.appmetrica.analytics.profile.Attribute
 import io.appmetrica.analytics.profile.GenderAttribute
 import io.appmetrica.analytics.profile.UserProfile
+import java.util.Currency
 
 abstract class Utils {
 
@@ -89,7 +91,7 @@ abstract class Utils {
       return builder.build()
     }
 
-    private fun toLocation(locationMap: ReadableMap?): Location? {
+    fun toLocation(locationMap: ReadableMap?): Location? {
       locationMap ?: return null
 
       val location = Location("Custom")
@@ -178,6 +180,27 @@ abstract class Utils {
       }
 
       return profile.build()
+    }
+
+    fun toRevenueInfo(data: ReadableMap): Revenue {
+      val price = data.getDouble("price").toLong()
+      val currency = data.getString("currency")
+
+      val revenueInfo = Revenue.newBuilder(price, Currency.getInstance(currency))
+
+      if (data.hasKey("productId")) {
+        revenueInfo.withProductID(data.getString("productId"))
+      }
+      if (data.hasKey("quantity")) {
+        revenueInfo.withQuantity(data.getInt("quantity"))
+      }
+
+      if (data.hasKey("payload")) {
+        val payload = data.getMap("payload")
+        revenueInfo.withPayload(payload.toString())
+      }
+
+      return revenueInfo.build()
     }
   }
 }

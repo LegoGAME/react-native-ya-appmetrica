@@ -219,4 +219,26 @@ class Utils {
     
     return preloadInfo
   }
+  
+  static func toRevenueInfo(with: NSDictionary) -> MutableRevenueInfo {
+    let price = with.value(forKey: "price") as! NSNumber;
+    let currency = with.value(forKey: "currency") as! String;
+    
+    let revenueInfo = MutableRevenueInfo(priceDecimal: price.decimalValue as NSDecimalNumber, currency: currency)
+    
+    if let quantity = with.value(forKey: "quantity") as? UInt {
+      revenueInfo.quantity = quantity
+    }
+    if let productID = with.value(forKey: "productID") as? String {
+      revenueInfo.productID = productID
+    }
+    if let transactionID = with.value(forKey: "transactionID") as? String {
+      revenueInfo.transactionID = transactionID
+    }
+    if let payload = with.value(forKey: "payload") as? [String: Any] {
+      revenueInfo.payload = payload
+    }
+
+    return revenueInfo
+  }
 }
