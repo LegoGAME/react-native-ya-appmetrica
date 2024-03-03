@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 import {
   StyleSheet,
@@ -6,8 +7,10 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from 'react-native';
 import * as AppMetrica from 'react-native-ya-appmetrica';
+import type { SystemInfo } from '../../src/types';
 
 AppMetrica.activate({
   apiKey: 'API_KEY',
@@ -48,9 +51,21 @@ const MyButton = ({ text, onPress }: { text: string; onPress: () => void }) => {
 };
 
 export default function App() {
+  const [info, setInfo] = useState<SystemInfo>();
+
+  useEffect(() => {
+    AppMetrica.getSystemInfo((v) => {
+      setInfo(v);
+    });
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>AppMetrica</Text>
+
+      <Text>{info?.appmetrica_device_id}</Text>
+      <Text>{info?.library_version}</Text>
+      <Text>{info?.uuid}</Text>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <MyButton
@@ -81,7 +96,7 @@ export default function App() {
           text="reportUserProfile"
           onPress={() => {
             AppMetrica.reportUserProfile({
-              userProfileID: 'qwerty123',
+              userProfileID: `user ${Platform.OS}`,
               name: 'Иван Иванов',
               gender: 'male',
               birthDate: new Date(1992, 6, 13),
@@ -98,6 +113,16 @@ export default function App() {
         <MyButton
           text="setStatisticsSending"
           onPress={() => AppMetrica.setStatisticsSending(true)}
+        />
+        <MyButton
+          text="reportRevenue"
+          onPress={() =>
+            AppMetrica.reportRevenue({
+              price: 99.99,
+              currency: 'RUB',
+              payload: { OrderID: `${Platform.OS} users`, other: 'test' },
+            })
+          }
         />
       </ScrollView>
     </View>
@@ -116,6 +141,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   scrollContainer: {
+    marginTop: 10,
     gap: 10,
   },
   button: {
