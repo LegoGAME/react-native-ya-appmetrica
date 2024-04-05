@@ -5,9 +5,9 @@
 
 Версии нативных библиотек:
 
-iOS 5.0.0
+iOS 5.2.0
 
-Android 6.2.1 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics/analytics)
+Android 6.3.0 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics/analytics)
 
 > [!WARNING]
 > Бибилиотека находится в разработке.
@@ -16,6 +16,12 @@ Android 6.2.1 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics
 > До версии 1.0.0 любое минорное обновление может внести обратно-несовместимые изменения. В связи с этим, лучше зафиксировать точную версию в package.json. Для обновления следуйте руководству по миграции.
 
 ## История изменений
+
+### 0.4.1 05.04.2024
+
+- Обновление iOS версии библиотеки до 5.2.0.
+- Обновление Android версии библиотеки до 6.3.0.
+- Для iOS зафиксирована конкретная версия библиотеки AppMetrica.
 
 ### 0.4.0 03.03.2024
 
