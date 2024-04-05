@@ -90,6 +90,6 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'io.appmetrica.analytics:analytics:6.2.1'
+  implementation 'io.appmetrica.analytics:analytics:6.3.0'
 }
 
