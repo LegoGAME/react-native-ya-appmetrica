@@ -5,9 +5,13 @@
 
 Версии нативных библиотек:
 
-iOS 5.2.0
+iOS 5.7.0
+[cocoapods](https://cocoapods.org/pods/AppMetricaCore)
+[github](https://github.com/appmetrica/appmetrica-sdk-ios)
 
-Android 6.3.0 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics/analytics)
+Android 7.0.0
+[maven](https://mvnrepository.com/artifact/io.appmetrica.analytics/analytics)
+[github](https://github.com/appmetrica/appmetrica-sdk-android)
 
 > [!WARNING]
 > Бибилиотека находится в разработке.
@@ -16,6 +20,11 @@ Android 6.3.0 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics
 > До версии 1.0.0 любое минорное обновление может внести обратно-несовместимые изменения. В связи с этим, лучше зафиксировать точную версию в package.json. Для обновления следуйте руководству по миграции.
 
 ## История изменений
+
+### 0.4.2 04.08.2024
+
+- Обновление iOS версии библиотеки до 5.7.0.
+- Обновление Android версии библиотеки до 7.0.0.
 
 ### 0.4.1 05.04.2024
 
@@ -268,9 +277,10 @@ AppMetrica.criticalError();
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow. -->
 
 ## TODO
-- [ ] описать все существующие параметры инициализации библиотеки
-- [ ] настройка крэш-плагина для работы nativeCrashReporting в Android
-- [ ] добавить PUSH SDK
+- [ ] Отправка статистики на дополнительный API key [iOS](https://appmetrica.yandex.ru/docs/ru/sdk/ios/analytics/ios-operations#shag-1-opcionalno-inicializirujte-reporter-s-rasshirennoj-konfiguraciej) [Android](https://appmetrica.yandex.ru/docs/ru/sdk/android/analytics/android-operations#reporter-different-apikey)
+- [ ] Установка местоположения устройства вручную [iOS](https://appmetrica.yandex.ru/docs/ru/sdk/ios/analytics/ios-operations#location) [Android](https://appmetrica.yandex.ru/docs/ru/sdk/android/analytics/android-operations#ustanovka-mestopolozheniya-vruchnuyu)
+- [ ] Отправка ECommerce-событий [iOS](https://appmetrica.yandex.ru/docs/ru/sdk/ios/analytics/ios-operations#ecommerce) [Android](https://appmetrica.yandex.ru/docs/ru/sdk/android/analytics/android-operations#otpravka-ecommerce-sobytij)
+- [ ] Push SDK
 
 ## License
 
