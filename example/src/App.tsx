@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
-  Text,
-  TouchableOpacity,
   ScrollView,
   Platform,
+  SafeAreaView,
 } from 'react-native';
 import * as AppMetrica from 'react-native-ya-appmetrica';
 import type { SystemInfo } from '../../src/types';
+import MyButton from './components/MyButton';
+import InfoArg from './components/InfoArg';
 
 AppMetrica.activate({
   apiKey: 'API_KEY',
@@ -29,26 +30,6 @@ AppMetrica.configureCrashes({
   applicationNotRespondingPingInterval: 0.1,
 });
 
-const MyButton = ({ text, onPress }: { text: string; onPress: () => void }) => {
-  return (
-    <TouchableOpacity
-      onPress={() => {
-        try {
-          onPress();
-        } catch (error) {
-          if (error instanceof Error) {
-            console.log(error.message);
-            AppMetrica.reportError(error);
-          }
-        }
-      }}
-      style={styles.button}
-    >
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
-  );
-};
-
 export default function App() {
   const [info, setInfo] = useState<SystemInfo>();
 
@@ -59,23 +40,26 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>AppMetrica</Text>
-
-      <Text>{info?.appmetrica_device_id}</Text>
-      <Text>{info?.library_version}</Text>
-      <Text>{info?.uuid}</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.info}>
+        <InfoArg title="Device id" text={info?.appmetrica_device_id} />
+        <InfoArg title="Library version" text={info?.library_version} />
+        <InfoArg title="UUID" text={info?.uuid} />
+      </View>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <MyButton
           text="sendEventsBuffer"
+          description="Send all cached events to AppMetrica"
           onPress={AppMetrica.sendEventsBuffer}
         />
-        <MyButton text="Critical error" onPress={AppMetrica.criticalError} />
-        {/* @ts-ignore undefined для тестирования отправки ошибки*/}
-        <MyButton text="onPress is undefined" onPress={undefined} />
         <MyButton
-          text="ReportCustomError"
+          text="Critical error"
+          description="Raise a test critical application error"
+          onPress={AppMetrica.criticalError}
+        />
+        <MyButton
+          text="ReportError"
           onPress={() => AppMetrica.reportError(new Error('this is joke'))}
         />
         <MyButton
@@ -124,35 +108,27 @@ export default function App() {
           }
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: '500',
-    marginTop: 60,
-    marginBottom: 15,
+  info: {
+    marginVertical: 10,
+    marginHorizontal: 15,
+    gap: 5,
+    borderWidth: 1,
+    borderColor: '#757474',
+    padding: 10,
+    borderRadius: 10,
   },
   scrollContainer: {
+    paddingBottom: 20,
     marginTop: 10,
     gap: 10,
-  },
-  button: {
-    backgroundColor: '#FF0060',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 7,
-    alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: '500',
+    marginHorizontal: 15,
   },
 });
