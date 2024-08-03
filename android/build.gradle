@@ -97,6 +97,6 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
   // AppMetrica
-  implementation 'io.appmetrica.analytics:analytics:6.4.0'
+  implementation 'io.appmetrica.analytics:analytics:7.0.0'
 }
 

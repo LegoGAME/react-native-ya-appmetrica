@@ -1,65 +1,65 @@
 PODS:
-  - AppMetrica_FMDB (5.2.0)
-  - AppMetrica_Protobuf (5.2.0)
-  - AppMetricaAdSupport (5.2.0):
-    - AppMetricaCore (= 5.2.0)
-    - AppMetricaCoreExtension (= 5.2.0)
-  - AppMetricaCore (5.2.0):
-    - AppMetrica_FMDB (= 5.2.0)
-    - AppMetrica_Protobuf (= 5.2.0)
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaEncodingUtils (= 5.2.0)
-    - AppMetricaHostState (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-    - AppMetricaNetwork (= 5.2.0)
-    - AppMetricaPlatform (= 5.2.0)
-    - AppMetricaProtobufUtils (= 5.2.0)
-    - AppMetricaStorageUtils (= 5.2.0)
-  - AppMetricaCoreExtension (5.2.0):
-    - AppMetricaCore (= 5.2.0)
-    - AppMetricaStorageUtils (= 5.2.0)
-  - AppMetricaCoreUtils (5.2.0):
-    - AppMetricaLog (= 5.2.0)
-  - AppMetricaCrashes (5.2.0):
-    - AppMetricaCore (= 5.2.0)
-    - AppMetricaCoreExtension (= 5.2.0)
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaEncodingUtils (= 5.2.0)
-    - AppMetricaHostState (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-    - AppMetricaPlatform (= 5.2.0)
-    - AppMetricaProtobufUtils (= 5.2.0)
-    - AppMetricaStorageUtils (= 5.2.0)
-    - KSCrash/Recording (= 1.17.0)
+  - AppMetricaAdSupport (5.7.0):
+    - AppMetricaCore (= 5.7.0)
+    - AppMetricaCoreExtension (= 5.7.0)
+  - AppMetricaCore (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaEncodingUtils (= 5.7.0)
+    - AppMetricaFMDB (= 5.7.0)
+    - AppMetricaHostState (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+    - AppMetricaNetwork (= 5.7.0)
+    - AppMetricaPlatform (= 5.7.0)
+    - AppMetricaProtobuf (= 5.7.0)
+    - AppMetricaProtobufUtils (= 5.7.0)
+    - AppMetricaStorageUtils (= 5.7.0)
+  - AppMetricaCoreExtension (5.7.0):
+    - AppMetricaCore (= 5.7.0)
+    - AppMetricaStorageUtils (= 5.7.0)
+  - AppMetricaCoreUtils (5.7.0):
+    - AppMetricaLog (= 5.7.0)
+  - AppMetricaCrashes (5.7.0):
+    - AppMetricaCore (= 5.7.0)
+    - AppMetricaCoreExtension (= 5.7.0)
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaEncodingUtils (= 5.7.0)
+    - AppMetricaHostState (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+    - AppMetricaPlatform (= 5.7.0)
+    - AppMetricaProtobufUtils (= 5.7.0)
+    - AppMetricaStorageUtils (= 5.7.0)
+    - KSCrash/Recording (~> 1.17.0)
     - KSCrash/Recording/Tools
-  - AppMetricaEncodingUtils (5.2.0):
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-    - AppMetricaPlatform (= 5.2.0)
-  - AppMetricaHostState (5.2.0):
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-  - AppMetricaLog (5.2.0)
-  - AppMetricaNetwork (5.2.0):
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-    - AppMetricaPlatform (= 5.2.0)
-  - AppMetricaPlatform (5.2.0):
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
-  - AppMetricaProtobufUtils (5.2.0):
-    - AppMetrica_Protobuf (= 5.2.0)
-  - AppMetricaStorageUtils (5.2.0):
-    - AppMetricaCoreUtils (= 5.2.0)
-    - AppMetricaLog (= 5.2.0)
+  - AppMetricaEncodingUtils (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+    - AppMetricaPlatform (= 5.7.0)
+  - AppMetricaFMDB (5.7.0)
+  - AppMetricaHostState (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+  - AppMetricaLog (5.7.0)
+  - AppMetricaNetwork (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+    - AppMetricaPlatform (= 5.7.0)
+  - AppMetricaPlatform (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
+  - AppMetricaProtobuf (5.7.0)
+  - AppMetricaProtobufUtils (5.7.0):
+    - AppMetricaProtobuf (= 5.7.0)
+  - AppMetricaStorageUtils (5.7.0):
+    - AppMetricaCoreUtils (= 5.7.0)
+    - AppMetricaLog (= 5.7.0)
   - boost (1.83.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.74.4)
   - fmt (9.1.0)
   - glog (0.3.5)
-  - KSCrash/Recording (1.17.0):
-    - KSCrash/Recording/Tools (= 1.17.0)
-  - KSCrash/Recording/Tools (1.17.0)
+  - KSCrash/Recording (1.17.4):
+    - KSCrash/Recording/Tools (= 1.17.4)
+  - KSCrash/Recording/Tools (1.17.4)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -964,9 +964,9 @@ PODS:
     - glog
     - React-debug
   - react-native-ya-appmetrica (0.4.1):
-    - AppMetricaAdSupport (= 5.2.0)
-    - AppMetricaCore (= 5.2.0)
-    - AppMetricaCrashes (= 5.2.0)
+    - AppMetricaAdSupport (= 5.7.0)
+    - AppMetricaCore (= 5.7.0)
+    - AppMetricaCrashes (= 5.7.0)
     - DoubleConversion
     - glog
     - RCT-Folly (= 2024.01.01.00)
@@ -1290,18 +1290,18 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AppMetrica_FMDB
-    - AppMetrica_Protobuf
     - AppMetricaAdSupport
     - AppMetricaCore
     - AppMetricaCoreExtension
     - AppMetricaCoreUtils
     - AppMetricaCrashes
     - AppMetricaEncodingUtils
+    - AppMetricaFMDB
     - AppMetricaHostState
     - AppMetricaLog
     - AppMetricaNetwork
     - AppMetricaPlatform
+    - AppMetricaProtobuf
     - AppMetricaProtobufUtils
     - AppMetricaStorageUtils
     - KSCrash
@@ -1422,26 +1422,26 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AppMetrica_FMDB: 86a7247cecf4b315735b119f8547779bffca535a
-  AppMetrica_Protobuf: 326de64e6b52ab2cddce121c780461ac9eedb6c4
-  AppMetricaAdSupport: 1ebdf7d6f4555675aa776fb7fee5bd96ebef1dcf
-  AppMetricaCore: 647efed7efaa8fad9e38aa417d95aeccaf8b0926
-  AppMetricaCoreExtension: 2b93264b869438d890df5bf6a69407fce5542e1c
-  AppMetricaCoreUtils: f6b3cfde963e1027e3044630e2fd7e1007422c1b
-  AppMetricaCrashes: f096e2cee83a46769685b850df846f5822c81b24
-  AppMetricaEncodingUtils: 3b7d0aafefbc9a0ae84515a4b381d0a576f944f2
-  AppMetricaHostState: 280370ecaf3096d4ff313bb7c13fb13252ae99e7
-  AppMetricaLog: 7f5b21edad9e93e12d5d8e2aeafd17cbc2befb2b
-  AppMetricaNetwork: 070f7ce9fcad0e97d762d76ed7616236f9c73417
-  AppMetricaPlatform: 36742fdd5e4290ab923cf5ede28612dae96a6671
-  AppMetricaProtobufUtils: 37f172ca2fffacba2f0d564308c873bba4726b88
-  AppMetricaStorageUtils: 4de179f2354946734cc7c407322398f5276e3305
+  AppMetricaAdSupport: c1888375a6e85bb55d1e36cc8c2a86b1dcc3e88d
+  AppMetricaCore: 2b88e6d5a5aafd9663bbc6056388ac0e95b6e2f1
+  AppMetricaCoreExtension: 1d7924bb168f7238fffeecaeea0a04a0b29037c5
+  AppMetricaCoreUtils: 9ed2396aa229554bd6b7532b5f52c638275bba67
+  AppMetricaCrashes: 1a9d2e68cfa92425d6ce3a997287db051219263d
+  AppMetricaEncodingUtils: b789fa4c1e65291751d2f2ddf71f63e097abfcc8
+  AppMetricaFMDB: adc2ca20358239db4c246113e2d4f0663779839c
+  AppMetricaHostState: 70a575d9226ae3fcf9adc3f948403e45a8199a60
+  AppMetricaLog: 8903049a47249067f01839f392552e91feb72171
+  AppMetricaNetwork: a738841c6987ca81da92ba721edcda3ebced351a
+  AppMetricaPlatform: 456d620ca7816ae57d9b94c19bddc10f36fab7b3
+  AppMetricaProtobuf: 4d9c8e28bc7ee7f2df7bc0b5882b5b8734add7a5
+  AppMetricaProtobufUtils: 69272f30e19e30d814b7f05cbd1130e888764c8d
+  AppMetricaStorageUtils: d72c866868dce22626441349bcd45eeec43b9e86
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
   FBLazyVector: 4c674c2d53de79c145d6a723910543d7b57ed74c
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
-  KSCrash: 593ec373759e4c1bce381421a627326a20d2dc66
+  KSCrash: 158a0998f08ae7d4e54ef8a2da62d6e08b46d03a
   RCT-Folly: 02617c592a293bd6d418e0a88ff4ee1f88329b47
   RCTDeprecation: d83da85890d5bb18efd2809a733865c1c5c11487
   RCTRequired: e109419eacfb10fbb79a3ecb57ebcad198593d8a
@@ -1466,7 +1466,7 @@ SPEC CHECKSUMS:
   React-jsitracing: 4e9c99e73a6269b27b0d4cbab277dd90df3e5ac0
   React-logger: fbfb50e2a2b1b46ee087f0a52739fadecc5e81a4
   React-Mapbuffer: d39610dff659d8cf1fea485abae08bbf6f9c8279
-  react-native-ya-appmetrica: c4d25bacd70227b237b0f87c5c55a880def22848
+  react-native-ya-appmetrica: a69158238dec87015e42605541db99c389b35d55
   React-nativeconfig: 2be4363c2c4ac2b42419577774e83e4e4fd2af9f
   React-NativeModulesApple: ab7f3b99b84b3833d55f8b3a44ceaccd23a0d624
   React-perflogger: 9745f800ab4d12ec4325bde7bd090eafb87c5570
