@@ -5,11 +5,11 @@
 
 Версии нативных библиотек:
 
-iOS 5.7.0
+iOS 5.12.1
 [cocoapods](https://cocoapods.org/pods/AppMetricaCore)
 [github](https://github.com/appmetrica/appmetrica-sdk-ios)
 
-Android 7.0.0
+Android 7.11.0
 [maven](https://mvnrepository.com/artifact/io.appmetrica.analytics/analytics)
 [github](https://github.com/appmetrica/appmetrica-sdk-android)
 
@@ -20,6 +20,11 @@ Android 7.0.0
 > До версии 1.0.0 любое минорное обновление может внести обратно-несовместимые изменения. В связи с этим, лучше зафиксировать точную версию в package.json. Для обновления следуйте руководству по миграции.
 
 ## История изменений
+
+### 0.4.3 26.01.2025
+
+- Обновление iOS версии библиотеки до 5.12.1.
+- Обновление Android версии библиотеки до 7.11.0.
 
 ### 0.4.2 04.08.2024
 
